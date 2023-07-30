@@ -1,0 +1,32 @@
+{
+  "name": "transactiondataset",
+  "version": "1.0.0",
+  "description": "Transaction and transaction dataset realisation with proxy on JavaScript",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timursevimli/DatasetTransaction.git"
+  },
+  "keywords": [
+    "transaction",
+    "transactiondataset",
+    "proxy"
+  ],
+  "author": "Timur Sevimli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timursevimli/DatasetTransaction/issues"
+  },
+  "homepage": "https://github.com/timursevimli/DatasetTransaction#readme",
+  "devDependencies": {
+    "eslint": "^8.46.0"
+  }
+}
