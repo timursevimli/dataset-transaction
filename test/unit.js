@@ -121,6 +121,32 @@ test('Test rollback', () => {
   transaction.stop();
 });
 
+test('Test clone', () => {
+  const data = getData();
+  const { transaction, proxy } = Transaction.start(data);
+
+  proxy.languages = ['JS'];
+
+  const clone = transaction.clone();
+
+  assert.deepStrictEqual(transaction.data, data);
+  assert.deepStrictEqual(clone.transaction.data, data);
+
+  assert.strictEqual(transaction.data, data);
+  assert.notStrictEqual(clone.transaction.data, data);
+
+  assert.deepStrictEqual(clone.proxy, proxy);
+  assert.notStrictEqual(clone.proxy, proxy);
+
+  assert.deepStrictEqual(clone.transaction.data, transaction.data);
+  assert.notStrictEqual(clone.transaction.data, transaction.data);
+
+  assert.deepStrictEqual(clone.transaction.delta, transaction.delta);
+  assert.notStrictEqual(clone.transaction.delta, transaction.delta);
+
+  transaction.stop();
+});
+
 test('Test timeout (commit)', async () => {
   const data = getData();
   const { transaction, proxy } = Transaction.start(data);
