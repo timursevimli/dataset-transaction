@@ -189,6 +189,26 @@ test('Test timeout (commit)', async () => {
   transaction.stop();
 });
 
+test('Test revoke', () => {
+  const data = getData();
+  const { transaction, proxy } = Transaction.start(data);
+
+  transaction.revoke();
+
+  assert.throws(() => void proxy.name);
+});
+
+test('Test stop', () => {
+  const data = getData();
+  const { transaction, proxy } = Transaction.start(data);
+
+  transaction.timeout(1000);
+  transaction.stop();
+
+  assert.strictEqual(transaction.timer, null);
+  assert.throws(() => void proxy.name);
+});
+
 test('Test timeout (rollback)', async () => {
   const data = getData();
   const { transaction, proxy } = Transaction.start(data);
