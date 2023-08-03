@@ -9,7 +9,7 @@ const { Transaction } = require('../main.js');
 const getData = () => ({
   name: 'John Doe',
   age: 30,
-  email: 'johndoe@example.com'
+  email: 'johndoe@example.com',
 });
 
 test('Test get', () => {

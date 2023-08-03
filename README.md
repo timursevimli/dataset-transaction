@@ -1,22 +1,26 @@
 # Transaction Class
+
 The Transaction class is a utility that allows you to create transactions for managing changes to an object's properties. It provides methods to start, commit, and rollback transactions, as well as events to track changes.
 
 ## Features
-* Create and manage transactions for an object's properties.
-* Emit events for actions such as getting, setting, deleting, committing, rolling back, and timeout.
-* Handle transaction timeout, automatically committing or rolling back changes after a specified duration.
-* Revocable proxy object to track property changes.
 
-## Installation 
+- Create and manage transactions for an object's properties.
+- Emit events for actions such as getting, setting, deleting, committing, rolling back, and timeout.
+- Handle transaction timeout, automatically committing or rolling back changes after a specified duration.
+- Revocable proxy object to track property changes.
+
+## Installation
 
 To install and use `dataset-transaction`, follow these steps:
 
 Clone the repository using the command:
-```bash 
+
+```bash
   git clone https://github.com/timursevimli/dataset-transaction.git
 ```
 
 ## Usage
+
 Here's a quick example demonstrating how to use the `Transaction` class:
 
 ```bash
