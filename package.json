@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "description": "Transaction and dataset transactions",
   "main": "main.js",
+  "types": "transaction.d.ts",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm run lint && node ./test/unit.js",
-    "lint": "eslint ."
+    "test": "npm run lint && npm run types && node ./test/unit.js",
+    "types": "tsc -p tsconfig.json",
+    "lint": "eslint . && prettier -c '**/*.js' '**/*.json' '**/*.md' '**/*.ts'",
+    "fmt": "prettier --write '**/*.js' '**/*.json' '**/*.md' '**/*.ts'"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/timursevimli/dataset-transaction.git"
+  },
+  "funding": {
+    "type": "tron",
+    "url": "https://tronscan.org/#/address/TKhK6wH9T6BDCAsYCofPZmme4g3ftcBJiP",
+    "wallet": "TKhK6wH9T6BDCAsYCofPZmme4g3ftcBJiP"
   },
   "keywords": [
     "transaction",
@@ -21,14 +29,18 @@
     "revocable",
     "proxy"
   ],
-  "author": "Timur Sevimli",
+  "author": "Timur Sevimli <svmlitimur@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/timursevimli/dataset-transaction/issues"
+    "url": "https://github.com/timursevimli/dataset-transaction/issues",
+    "email": "svmlitimur+github@gmail.com"
   },
   "readmeFilename": "README.md",
   "homepage": "https://github.com/timursevimli/dataset-transaction#readme",
   "devDependencies": {
-    "eslint": "^8.46.0"
+    "@types/node": "^20.4.6",
+    "eslint": "^8.46.0",
+    "prettier": "^3.0.1",
+    "typescript": "^5.1.6"
   }
 }
