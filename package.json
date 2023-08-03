@@ -8,7 +8,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm run lint && npm run types && node ./test/unit.js",
+    "test": "npm run lint && npm run types && node ./test/runTests.js",
     "types": "tsc -p tsconfig.json",
     "lint": "eslint . && prettier -c '**/*.js' '**/*.json' '**/*.md' '**/*.ts'",
     "fmt": "prettier --write '**/*.js' '**/*.json' '**/*.md' '**/*.ts'"
