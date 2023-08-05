@@ -44,9 +44,9 @@ test('Test findOneById', () => {
   const dataset = getDataset();
   const datasetTransaction = DatasetTransaction.from(dataset);
 
-  const foundData = datasetTransaction.findOneById(1);
+  const foundData = datasetTransaction.findOneById(2);
   assert.ok(foundData);
-  assert.strictEqual(foundData.transaction.id, 1);
+  assert.strictEqual(foundData.transaction.id, 2);
   assert.deepStrictEqual(foundData.proxy, dataset[1]);
 
   const notFoundData = datasetTransaction.findOneById(3);
@@ -77,8 +77,9 @@ test('Test clone', () => {
 
   const clonedData1 = datasetTransaction.clone(1);
   assert.ok(clonedData1.transaction instanceof Transaction);
-  assert.deepStrictEqual(clonedData1.proxy, dataset[1]);
-  assert.notStrictEqual(clonedData1.transaction.data, dataset[1]);
+  assert.deepStrictEqual(clonedData1.proxy, dataset[0]);
+  assert.notStrictEqual(clonedData1.proxy, dataset[0]);
+  assert.notStrictEqual(clonedData1.transaction.data, dataset[0]);
 
   const clonedData3 = datasetTransaction.clone(3);
   assert.strictEqual(clonedData3, undefined);
@@ -93,29 +94,29 @@ test('Test logs', () => {
   const dataset = getDataset();
   const datasetTransaction = DatasetTransaction.from(dataset);
 
-  datasetTransaction.update('age', 31, 0);
+  datasetTransaction.update('age', 31, 1);
 
   assert.strictEqual(datasetTransaction.logs[0].operation, 'set');
   assert.strictEqual(datasetTransaction.logs[0].operationId, 1);
-  assert.strictEqual(datasetTransaction.logs[0].transactionId, 0);
+  assert.strictEqual(datasetTransaction.logs[0].transactionId, 1);
   assert.strictEqual(datasetTransaction.logs.length, 1);
 
-  datasetTransaction.delete('email', 1);
+  datasetTransaction.delete('email', 2);
 
   assert.strictEqual(datasetTransaction.logs[1].operation, 'delete');
   assert.strictEqual(datasetTransaction.logs[1].operationId, 2);
-  assert.strictEqual(datasetTransaction.logs[1].transactionId, 1);
+  assert.strictEqual(datasetTransaction.logs[1].transactionId, 2);
   assert.strictEqual(datasetTransaction.logs.length, 2);
 
   const logExample = [
     {
-      transactionId: 0,
+      transactionId: 1,
       operationId: 1,
       operation: 'set',
       time: new Date().toISOString(),
     },
     {
-      transactionId: 1,
+      transactionId: 2,
       operationId: 2,
       operation: 'delete',
       time: new Date().toISOString(),
@@ -124,8 +125,8 @@ test('Test logs', () => {
 
   assert.deepStrictEqual(logExample, datasetTransaction.logs);
 
-  datasetTransaction.commit(0);
-  datasetTransaction.rollback(1);
+  datasetTransaction.commit(1);
+  datasetTransaction.rollback(2);
 
   assert.strictEqual(datasetTransaction.logs.length, 4);
   assert.strictEqual(datasetTransaction.logs[2].operation, 'commit');
