@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Transaction and dataset transactions",
   "main": "main.js",
-  "types": "transaction.d.ts",
+  "types": "types.d.ts",
   "directories": {
     "lib": "lib"
   },
