@@ -13,10 +13,8 @@ The Transaction class is a utility that allows you to create transactions for ma
 
 To install and use `dataset-transaction`, follow these steps:
 
-Clone the repository using the command:
-
 ```bash
-  git clone https://github.com/timursevimli/dataset-transaction.git
+    npm install dataset-transaction
 ```
 
 ## Usage
