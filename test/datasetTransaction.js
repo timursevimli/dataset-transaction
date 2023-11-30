@@ -138,3 +138,12 @@ test('Test logs', () => {
   assert.strictEqual(datasetTransaction.logs[5].operation, 'revoke');
   assert.strictEqual(datasetTransaction.logs.length, 6);
 });
+
+test('Test toString', () => {
+  const dataset = getDataset();
+  const datasetTransaction = DatasetTransaction.from(dataset);
+
+  const expected = dataset.map((data) => JSON.stringify(data)).join();
+  const result = datasetTransaction.toString();
+  assert.strictEqual(result, expected);
+});
