@@ -1,6 +1,6 @@
 {
   "name": "dataset-transaction",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Transaction and dataset transactions",
   "main": "main.js",
   "types": "types.d.ts",
