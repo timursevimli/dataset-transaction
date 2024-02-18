@@ -21,7 +21,7 @@ To install and use `dataset-transaction`, follow these steps:
 
 Here's a quick example demonstrating how to use the `Transaction` class:
 
-```bash
+```javascript
 const { Transaction } = require('dataset-transaction');
 
 // Create initial data
