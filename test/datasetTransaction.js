@@ -82,7 +82,7 @@ test('Test clone', () => {
   assert.notStrictEqual(clonedData1.transaction.data, dataset[0]);
 
   const clonedData3 = datasetTransaction.clone(3);
-  assert.strictEqual(clonedData3, undefined);
+  assert.strictEqual(clonedData3, null);
 
   const clonedDataset = datasetTransaction.clone();
   assert.ok(clonedDataset instanceof DatasetTransaction);
