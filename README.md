@@ -28,7 +28,7 @@ const { Transaction } = require('dataset-transaction');
 const data = {
   name: 'John Doe',
   age: 30,
-  email: 'johndoe@example.com'
+  email: 'johndoe@example.com',
 };
 
 // Start a transaction
