@@ -95,6 +95,7 @@ test('Test logs', () => {
   const datasetTransaction = DatasetTransaction.from(dataset);
 
   datasetTransaction.update('age', 31, 1);
+  const firstTransactionTime = new Date().toISOString();
 
   assert.strictEqual(datasetTransaction.logs[0].operation, 'set');
   assert.strictEqual(datasetTransaction.logs[0].operationId, 1);
@@ -102,6 +103,7 @@ test('Test logs', () => {
   assert.strictEqual(datasetTransaction.logs.length, 1);
 
   datasetTransaction.delete('email', 2);
+  const secondTransactionTime = new Date().toISOString();
 
   assert.strictEqual(datasetTransaction.logs[1].operation, 'delete');
   assert.strictEqual(datasetTransaction.logs[1].operationId, 2);
@@ -113,13 +115,13 @@ test('Test logs', () => {
       transactionId: 1,
       operationId: 1,
       operation: 'set',
-      time: new Date().toISOString(),
+      time: firstTransactionTime,
     },
     {
       transactionId: 2,
       operationId: 2,
       operation: 'delete',
-      time: new Date().toISOString(),
+      time: secondTransactionTime,
     },
   ];
 
