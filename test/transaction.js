@@ -4,7 +4,7 @@ const assert = require('node:assert');
 const test = require('node:test');
 const { scheduler } = require('node:timers/promises');
 
-const { Transaction } = require('../main.js');
+const { Transaction } = require('../');
 
 const getData = () => ({
   name: 'John Doe',
