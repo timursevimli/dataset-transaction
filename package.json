@@ -1,8 +1,8 @@
 {
   "name": "dataset-transaction",
-  "version": "1.0.2",
+  "version": "0.0.1",
   "description": "Transaction and dataset transactions",
-  "main": "main.js",
+  "main": "lib/index.js",
   "types": "types.d.ts",
   "directories": {
     "lib": "lib"
