@@ -3,7 +3,7 @@
 const assert = require('node:assert');
 const test = require('node:test');
 
-const { Transaction, DatasetTransaction } = require('../main.js');
+const { Transaction, DatasetTransaction } = require('../');
 
 const getDataset = () => [
   {
